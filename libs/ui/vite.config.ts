@@ -19,9 +19,7 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
+    alias: {},
   },
   // Uncomment this if you are using workers.
   // worker: {

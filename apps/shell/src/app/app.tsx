@@ -1,8 +1,9 @@
+import { Title } from '@mf-poc/ui';
 import * as React from 'react';
 
 import { Link, Route, Routes } from 'react-router-dom';
+import { DashboardSidebar } from '../components/sidebar';
 
-import { Title, Button, Sidebar } from '@mf-poc/ui';
 const About = React.lazy(() => import('about/Module'));
 
 const Shop = React.lazy(() => import('shop/Module'));
@@ -12,31 +13,16 @@ const Cart = React.lazy(() => import('cart/Module'));
 export function App() {
   return (
     <React.Suspense fallback={null}>
-      <Button variant="default">Hola k ase</Button>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
+      <DashboardSidebar>
+        <Routes>
+          <Route path="/" element={<Title>Shell</Title>} />
+          <Route path="/about" element={<About />} />
 
-        <li>
-          <Link to="/shop">Shop</Link>
-        </li>
+          <Route path="/shop" element={<Shop />} />
 
-        <li>
-          <Link to="/cart">Cart</Link>
-        </li>
-      </ul>
-      <Routes>
-        <Route path="/" element={<Title>Shell</Title>} />
-        <Route path="/about" element={<About />} />
-
-        <Route path="/shop" element={<Shop />} />
-
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </DashboardSidebar>
     </React.Suspense>
   );
 }
