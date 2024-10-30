@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@/*": ["libs/ui/src/*"],
+      "@/lib/*": ["libs/ui/src/lib/*"],
+      "@mf-poc/ui": ["libs/ui/src/index.ts"],
+      "@mf-poc/ui2": ["libs/packages/ui2/src/index.ts"],
+      "about/Module": ["apps/about/src/remote-entry.ts"],
+      "cart/Module": ["apps/cart/src/remote-entry.ts"],
+      "shop/Module": ["apps/shop/src/remote-entry.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
